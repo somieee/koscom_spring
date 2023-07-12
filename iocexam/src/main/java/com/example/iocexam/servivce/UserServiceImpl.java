@@ -2,22 +2,29 @@ package com.example.iocexam.servivce;
 
 import com.example.iocexam.dao.UserDao;
 import com.example.iocexam.domain.User;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
 
+@Service
+@RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
 
-  private UserDao userDao;
+  private final UserDao userDao;
 
-  public UserServiceImpl(UserDao userDao) {
-    this.userDao = userDao;
-  }
+  // public UserServiceImpl() {
+  //   System.out.println("UserServiceImpl () 생성자");
+  // }
 
-  @Autowired
-  @Qualifier("userDao2")
-  public void setUserDao(UserDao userDao) {
-    this.userDao = userDao;
-  }
+  // @Autowired
+  // public UserServiceImpl(UserDao userDao) {
+  //   System.out.println("UserServiceImpl (userDao) 생성자");
+  //   this.userDao = userDao;
+  // }
+
+  // public void setUserDao(UserDao userDao) {
+  //   this.userDao = userDao;
+  // }
 
   @Override
   public void joinUser(User user) {
