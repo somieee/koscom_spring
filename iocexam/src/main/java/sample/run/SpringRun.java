@@ -14,6 +14,8 @@ public class SpringRun {
     
         System.out.println("ApplicationContext 생성 후!!");
 
+        MyBean bean5 = context.getBean(MyBean.class);
+
        MyBean bean1 =(MyBean) context.getBean("myBean");
 
        MyBean bean2 = context.getBean("myBean", MyBean.class);
@@ -26,7 +28,7 @@ public class SpringRun {
        if(bean1 == bean2)
         System.out.println("동일한 인스턴스입니다.");
 
-        MyBean bean3 = context.getBean("myBean2", MyBean.class);
+        MyBean bean3 = context.getBean("myBean", MyBean.class);
 
         System.out.println(bean3);
 

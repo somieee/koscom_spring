@@ -1,17 +1,16 @@
 package sample.config;
 
-import org.springframework.context.annotation.Bean;
-
-import sample.MyBean;
-
+import org.springframework.context.annotation.ComponentScan;
+@ComponentScan(basePackages = {"sample"})
 public class MyBeanConfig {
-    @Bean
-    public MyBean myBean(){
-        return new MyBean();
-    }
+    // @Bean
+    // @Scope("prototype")
+    // public MyBean myBean(){
+    //     return new MyBean();
+    // }
 
-    @Bean
-    public MyBean myBean2(){
-        return new MyBean();
-    }
+    // @Bean
+    // public MyBean myBean2(){
+    //     return new MyBean();
+    // }
 }
