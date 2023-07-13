@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.todo.repository.TodoMapper">
+<resultMap id="TodoResult" type="com.example.todo.domain.Todo">
+        <result column="id" property="id"/>
+        <result column="todo" property="todo"/>
+        <result column="done" property="done"/>
+    </resultMap>
+
+    <select id="findAll" resultMap="TodoResult">
+        SELECT id, todo, done FROM todos ORDER BY id desc
+    </select>
+
+<insert id="insertTodo" parameterType="com.example.todo.domain.Todo" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO todos (todo, done)
+        VALUES (#{todo}, #{done})
+</insert>
+
+
+    <select id="findById" parameterType="long" resultType="com.example.todo.domain.Todo">
+        SELECT id, todo, done FROM todos WHERE id = #{id}
+    </select>
+
+    <update id="updateTodo" parameterType="com.example.todo.domain.Todo">
+        UPDATE todos SET
+                         todo = #{todo},
+                         done = #{done}
+        WHERE id = #{id}
+    </update>
+
+    <delete id="deleteTodo" parameterType="long">
+        DELETE FROM todos WHERE id = #{id}
+    </delete>
+
+    <select id="findAllWithPaging" resultMap="TodoResult">
+        SELECT id, todo, done FROM todos ORDER BY id DESC LIMIT #{limit} OFFSET #{offset}
+    </select>
+</mapper>

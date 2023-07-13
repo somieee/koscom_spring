@@ -15,7 +15,4 @@
         </environment>
     </environments>
 
-    <mappers>
-        <mapper resource="mybatis-spring/TodoMapper.xml"/>
-    </mappers>
 </configuration>
