@@ -3,7 +3,6 @@ package com.example.iocexam.servivce;
 import com.example.iocexam.dao.UserDao;
 import com.example.iocexam.domain.User;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
