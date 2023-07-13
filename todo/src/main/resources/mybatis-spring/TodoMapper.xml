@@ -6,5 +6,5 @@
 <insert id="insertTodo" parameterType="com.example.todo.domain.Todo" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO todos (todo, done)
         VALUES (#{todo}, #{done})
-    </insert>
+</insert>
 </mapper>
