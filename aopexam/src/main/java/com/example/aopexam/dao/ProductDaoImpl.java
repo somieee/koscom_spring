@@ -19,6 +19,7 @@ public class ProductDaoImpl implements ProductDao {
   @Override
   public Product findProduct(String name) {
     System.out.println("dao findProduct run!!");
+    // if (1 == 1) throw new RuntimeException();
     return storage.get(name);
   }
 }
