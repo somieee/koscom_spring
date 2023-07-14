@@ -1,4 +1,11 @@
 spring:
+  thymeleaf:
+    enabled: true
+    cache: false
+    prefix: classpath:/templates/
+    suffix: .html
+    encoding: UTF-8
+    mode: HTML
   datasource:
     url: jdbc:h2:tcp://localhost/~/test;MODE=MySQL
     username: sa
@@ -9,3 +16,8 @@ spring:
 mybatis:
   mapper-locations: classpath:/mybatis/mapper/*.xml
   config-location: classpath:/mybatis/mybatis-config.xml
+
+# server:
+#   port: 9999
+#   servlet:
+#     context-path: /koscom
