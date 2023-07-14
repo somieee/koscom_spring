@@ -1,21 +1,40 @@
 package com.example.todo.controller;
 
+import com.example.todo.domain.Todo;
+import com.example.todo.service.TodoService;
+import java.util.List;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 @RequestMapping("/todo")
+@RequiredArgsConstructor
 public class TodoController {
 
+  private final TodoService todoService;
+
   @GetMapping("/list")
-  // @ResponseBody
-  public String hi(String name, Model model) {
-    System.out.println("hi~~~~!!!!!!!!!!!!!!");
-    model.addAttribute("name", name);
+  public String list(Model model) {
+    List<Todo> todos = todoService.getTodos();
+    model.addAttribute("todoList", todos);
     return "list";
+  }
+
+  @GetMapping("/update")
+  public String update(@RequestParam("id") Long id) {
+    todoService.updateTodo(id);
+    return "redirect:/todo/list";
+  }
+
+  @GetMapping("/delete")
+  public String delete(@RequestParam("id") Long id) {
+    todoService.deleteTodo(id);
+    return "redirect:/todo/list";
   }
 
   @GetMapping("/")

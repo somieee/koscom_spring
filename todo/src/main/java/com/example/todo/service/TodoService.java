@@ -37,7 +37,9 @@ public class TodoService {
     Todo updateTodo = null;
     try {
       updateTodo = todoMapper.findById(id);
+      // System.out.println(updateTodo);
       updateTodo.setDone(!updateTodo.isDone());
+      todoMapper.updateTodo(updateTodo);
     } catch (Exception e) {
       e.printStackTrace();
     } finally {
