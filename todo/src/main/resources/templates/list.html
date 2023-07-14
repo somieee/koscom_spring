@@ -84,7 +84,10 @@
     <body>
         <div class="todo-container">
         <h1>Todo List</h1>
-
+         <form action="/todo/add" method="post" class="add-todo-form">
+            <input type="text" name="todo" placeholder="할일을 입력하세요." class="add-todo-input">
+            <button type="submit" class="add-todo-button">추가</button>
+         </form>   
         <ul>
             <li th:each=" todo :${todoList}">
                 <a th:href = "@{/todo/update(id=${todo.id})}">
@@ -96,6 +99,10 @@
                 </a>
             </li>
         </ul>
+        <script>
+            const input = document.querySelector(".add-todo-input");
+            input.focus();
+        </script>
         </div>
     </body>
 </html>

@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -35,6 +36,18 @@ public class TodoController {
   public String delete(@RequestParam("id") Long id) {
     todoService.deleteTodo(id);
     return "redirect:/todo/list";
+  }
+
+  @PostMapping("/add")
+  public String add(@RequestParam("todo") String todo) {
+    todoService.addTodo(todo);
+    return "redirect:/todo/list";
+  }
+
+  @GetMapping("/add")
+  @ResponseBody
+  public String add2() {
+    return "test111";
   }
 
   @GetMapping("/")
