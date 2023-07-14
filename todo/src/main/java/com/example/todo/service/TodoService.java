@@ -33,7 +33,7 @@ public class TodoService {
 
   @Transactional
   public Todo updateTodo(Long id) {
-    System.out.println("TodoService updateTodo start!!");
+    System.out.println("TodoService updateTodo start!!" + id);
     Todo updateTodo = null;
     try {
       updateTodo = todoMapper.findById(id);
