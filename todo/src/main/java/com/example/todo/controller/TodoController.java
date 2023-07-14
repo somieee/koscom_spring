@@ -19,6 +19,11 @@ public class TodoController {
 
   private final TodoService todoService;
 
+  @GetMapping
+  public String todo() {
+    return "todo";
+  }
+
   @GetMapping("/list")
   public String list(Model model) {
     List<Todo> todos = todoService.getTodos();
@@ -49,10 +54,9 @@ public class TodoController {
   public String add2() {
     return "test111";
   }
-
-  @GetMapping("/")
-  @ResponseBody
-  public String tt() {
-    return "test";
-  }
+  // @GetMapping("/")
+  // @ResponseBody
+  // public String tt() {
+  //   return "test";
+  // }
 }
